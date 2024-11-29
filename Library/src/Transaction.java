@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -59,8 +61,21 @@ public class Transaction {
 			writer.write(details);
 			writer.newLine();
 		} catch (IOException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
+			System.err.println("An error occurred writing the transaction history file: " + e.getMessage());
+		}
+	}
+	
+	// Display the transaction history
+	public void displayTransactionHistory() {
+		try (BufferedReader reader = new BufferedReader(new FileReader("transactions.txt"))) {
+			System.out.println("\nTransaction History:");
+			String line;
+			while ((line = reader.readLine()) != null) {
+				System.out.println(line);
+			}
+			System.out.println();
+		} catch (IOException e) {
+			System.err.println("Error reading the transaction history file: " + e.getMessage());
 		}
 	}
 }
