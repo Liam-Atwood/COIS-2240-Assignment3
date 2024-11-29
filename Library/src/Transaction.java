@@ -2,9 +2,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Transaction {
+	// Instance of Transaction
+	private static Transaction transaction;
+	
+	// Private constructor
+	private Transaction() {}
+	
+	// Get the instance of Transaction
+	public static Transaction getTransaction() {
+		if (transaction == null) {
+			transaction = new Transaction();
+		}
+		return transaction;
+	}
 
     // Perform the borrowing of a book
-    public static boolean borrowBook(Book book, Member member) {
+    public boolean borrowBook(Book book, Member member) {
         if (book.isAvailable()) {
             book.borrowBook();
             member.borrowBook(book); 
@@ -18,7 +31,7 @@ public class Transaction {
     }
 
     // Perform the returning of a book
-    public static void returnBook(Book book, Member member) {
+    public void returnBook(Book book, Member member) {
         if (member.getBorrowedBooks().contains(book)) {
             member.returnBook(book);
             book.returnBook();
@@ -30,7 +43,7 @@ public class Transaction {
     }
 
     // Get the current date and time in a readable format
-    private static String getCurrentDateTime() {
+    private String getCurrentDateTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(new Date());
     }
