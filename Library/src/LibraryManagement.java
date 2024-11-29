@@ -38,8 +38,10 @@ public class LibraryManagement {
                     scanner.nextLine();
 
                     Member newMember = new Member(id, name);
-                    library.addMember(newMember);
-                    System.out.println("Member added successfully.");
+                    boolean added = library.addMember(newMember);
+                    if (added) {
+                    	System.out.println("Member added successfully.");
+					}
                     break;
                 case 2:
                     System.out.print("Enter book ID: ");
@@ -50,8 +52,10 @@ public class LibraryManagement {
                     scanner.nextLine();
 
                     Book newBook = new Book(id, title);
-                    library.addBook(newBook);
-                    System.out.println("Book added to library successfully.");
+                    boolean bookAdded = library.addBook(newBook);
+                    if (bookAdded) {
+                    	System.out.println("Book added to library successfully.");
+                    }
                     break;
                 case 3:
                 	System.out.println("\n--- Available Members ---");
