@@ -51,11 +51,16 @@ public class LibraryManagement {
                     
                     scanner.nextLine();
 
-                    Book newBook = new Book(id, title);
-                    boolean bookAdded = library.addBook(newBook);
+				Book newBook;
+				try {
+					newBook = new Book(id, title);
+					boolean bookAdded = library.addBook(newBook);
                     if (bookAdded) {
                     	System.out.println("Book added to library successfully.");
-                    }
+                    } 
+				} catch (Exception e) {
+					System.out.println("Error adding book: " + e.getMessage());
+				}
                     break;
                 case 3:
                 	System.out.println("\n--- Available Members ---");

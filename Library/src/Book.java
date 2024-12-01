@@ -3,7 +3,11 @@ public class Book {
     private String title;
     private boolean available;
 
-    public Book(int id, String title) {
+    public Book(int id, String title) throws Exception {
+    	// Throws exception when id is outside bounds of 100 to 999.
+    	if (!isValidId(id)) {
+    		throw new Exception("Id " + id + " is invalid. Must be between 100 and 999");
+    	}
         this.id = id;
         this.title = title;
         this.available = true;
