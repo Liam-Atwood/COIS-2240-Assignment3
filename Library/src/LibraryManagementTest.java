@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Constructor;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -69,5 +70,14 @@ public class LibraryManagementTest {
 		boolean secondReturn = transaction.returnBook(book, member);
 		// Return failed
 		assertFalse(secondReturn);
+	}
+	
+	@Test
+	public void testSingletonTransaction() throws Exception {
+		Constructor<Transaction> constructor = Transaction.class.getDeclaredConstructor();
+		
+		int modifiers = constructor.getModifiers();
+		// Check constructor private
+		assertEquals(2, modifiers);
 	}
 }

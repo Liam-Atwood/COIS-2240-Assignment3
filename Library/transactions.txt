@@ -8,3 +8,9 @@
 2024-12-01 21:25:41 - Returning: Test Member returned Test Book
 2024-12-01 21:28:23 - Borrowing: Test Member borrowed Test Book
 2024-12-01 21:28:23 - Returning: Test Member returned Test Book
+2024-12-01 21:59:39 - Borrowing: Test Member borrowed Test Book
+2024-12-01 21:59:39 - Returning: Test Member returned Test Book
+2024-12-01 21:59:51 - Borrowing: Test Member borrowed Test Book
+2024-12-01 21:59:51 - Returning: Test Member returned Test Book
+2024-12-01 21:59:58 - Borrowing: Test Member borrowed Test Book
+2024-12-01 21:59:58 - Returning: Test Member returned Test Book
